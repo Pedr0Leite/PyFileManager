@@ -10,3 +10,4 @@ class FileMoverHandler(FileSystemEventHandler):
         for file in entries:
             name = file.name
             dest = source_dir
+            print(f'Name {name}! This is the dest {source_dir}')
