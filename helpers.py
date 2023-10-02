@@ -8,13 +8,13 @@ class DirectoryUtils:
         self.absolute_path = os.path.dirname(__file__)
     
     def get_source_dir(self):
-        pwd = os.getcwd()
+        # pwd = os.getcwd()
         with open(f'{self.absolute_path}\source_dir.txt', 'r') as f:
             source_dir = f.readlines()
             return source_dir
         
     def write_new_source_dir(self, new_dir):
-        with open(f'{self.absolute_path}\source_dir.txt', 'r') as f:
+        with open(f'{self.absolute_path}\source_dir.txt', 'w') as f:
             f.write(str(new_dir))
             
     def get_folders_names(self):
