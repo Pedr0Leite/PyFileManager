@@ -7,13 +7,13 @@ from helpers import DirectoryUtils
 class FileMoverHandler():
     def __init__(self, event):
         self.absolute_path = DirectoryUtils().get_source_dir()
-        
+        self.event = event
         self.when_folder_is_modified(event)
     
     def when_folder_is_modified(self, event):
         # self.absolute_path = DirectoryUtils().get_source_dir()
         # print('Folder was modified! Organizing...')
-        # print(f"hey, {event.src_path} has been created!")
+        print(f"hey, {event.src_path} has been created!")
         print(f"hey, has been created!")
         # entries = os.scandir(self.absolute_path)
 

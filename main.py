@@ -7,6 +7,7 @@ from time import sleep
 
 from helpers import DirectoryUtils
 from file_mover_handler import FileMoverHandler
+from run_initial_mover import RunInitialMover
 
 from watchdog.observers import Observer
 from watchdog.events import LoggingEventHandler
@@ -70,16 +71,19 @@ if __name__ == "__main__":
     my_event_handler = PatternMatchingEventHandler(patterns, ignore_patterns, ignore_directories, case_sensitive)
 
     def on_created(event):
-        print(f"hey, {event.src_path} has been created!")
+        FileMoverHandler(event)
         
     my_event_handler.on_created = on_created
-    # my_event_handler.on_created = FileMoverHandler(my_event_handler)
     
     go_recursively = True
     my_observer = Observer()
     my_observer.schedule(my_event_handler, path, recursive=go_recursively)
 
     my_observer.start()
+    
+    # Run organization first time
+    RunInitialMover()
+    
     try:
         while True:
             time.sleep(5)
