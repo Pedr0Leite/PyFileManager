@@ -69,11 +69,11 @@ if __name__ == "__main__":
     case_sensitive = True
     my_event_handler = PatternMatchingEventHandler(patterns, ignore_patterns, ignore_directories, case_sensitive)
 
-    # def on_created(event):
-    #     print(f"hey, {event.src_path} has been created!")
+    def on_created(event):
+        print(f"hey, {event.src_path} has been created!")
         
-    # my_event_handler.on_created = on_created
-    my_event_handler.on_created = FileMoverHandler()
+    my_event_handler.on_created = on_created
+    # my_event_handler.on_created = FileMoverHandler(my_event_handler)
     
     go_recursively = True
     my_observer = Observer()
@@ -82,7 +82,7 @@ if __name__ == "__main__":
     my_observer.start()
     try:
         while True:
-            time.sleep(10)
+            time.sleep(5)
             print('Running again')
     except KeyboardInterrupt:
         my_observer.stop()
