@@ -40,27 +40,6 @@ if len(source_dir) == 0:
     source_dir = DirectoryUtils().get_source_dir()
      
 
-# # Listener part
-# if __name__ == "__main__":
-#     logging.basicConfig(level=logging.INFO,
-#                         format='%(asctime)s - %(message)s',
-#                         datefmt='%Y-%m-%d %H:%M:%S')
-    
-#     path = source_dir[0]
-#     # event_handler = FileMoverHandler().when_folder_is_modified()
-#     event_handler = FileMoverHandler()
-#     observer = Observer()
-#     observer.schedule(event_handler, path, recursive=True)
-#     observer.start()
-    
-#     try:
-#         while True:
-#             sleep(5)
-#             print('Running again')
-#     except KeyboardInterrupt:
-#             observer.stop()
-#     observer.join()
-
 
 if __name__ == "__main__":
     patterns = ["*"]
@@ -86,7 +65,7 @@ if __name__ == "__main__":
     
     try:
         while True:
-            time.sleep(5)
+            time.sleep(120)
             print('Running again')
     except KeyboardInterrupt:
         my_observer.stop()
