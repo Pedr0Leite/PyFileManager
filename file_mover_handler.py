@@ -1,5 +1,4 @@
 import os
-import helpers
 from helpers import DirectoryUtils
 
 class FileMoverHandler():
