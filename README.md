@@ -1,6 +1,14 @@
 # PyFileManager
 This python application will organize your download files based on the extensions that you configure on the "extensions_names.txt". There are a bunch of them already there, but feel free to add/remove them as you wish.
 
+## Specific Packages to be installed with pip
+
+* os
+* shutil
+* datetime
+* watchdog
+* time
+
 ## Main folder to be organized
 Create a .txt file called "source_dir.txt" and add, on the first and only line, the URL that you wish the listener to be watching for file changes.
 
