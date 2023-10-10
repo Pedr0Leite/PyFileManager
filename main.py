@@ -11,25 +11,7 @@ from run_initial_mover import RunInitialMover
 
 from watchdog.observers import Observer
 from watchdog.events import LoggingEventHandler
-from watchdog.events import PatternMatchingEventHandler
-
-# confirmation = input('Use current saved source? If not, saved will be erased [y/n]\n')
-
-# if confirmation == 'y':
-#     source_dir = DirectoryUtils().get_source_dir()
-
-#     if len(source_dir) == 0:
-#         new_source = input('No source directory saved, please create a new one: \n')
-#         DirectoryUtils.write_new_source_dir(new_source)
-        
-#         source_dir = DirectoryUtils().get_source_dir()
-    
-# else:
-#     open('source_dir.txt', 'w').close()
-#     new_source = input('Please insert the new directory: ')
-#     DirectoryUtils().write_new_source_dir(new_source)
-        
-#     source_dir = DirectoryUtils().get_source_dir()    
+from watchdog.events import PatternMatchingEventHandler  
 
 source_dir = DirectoryUtils().get_source_dir()
 
@@ -65,7 +47,7 @@ if __name__ == "__main__":
     
     try:
         while True:
-            time.sleep(120)
+            time.sleep(300)
             print('Running again')
     except KeyboardInterrupt:
         my_observer.stop()

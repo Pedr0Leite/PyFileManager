@@ -20,7 +20,6 @@ class FileMoverHandler():
             ext_list = file.name.split('.')
             extension = ext_list[len(ext_list) - 1]
             file_path = f'{dest}\\{file_name}'
-            # print(f'Name: ->  {name} ||| Extension: -> {extension.capitalize()}')
             replace_bars = lambda x: x.replace("\n", "")
             file_extensions_temp = DirectoryUtils().get_extensions_names()
             file_extensions = list(map(replace_bars, file_extensions_temp))

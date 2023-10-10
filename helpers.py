@@ -16,11 +16,6 @@ class DirectoryUtils:
     def write_new_source_dir(self, new_dir):
         with open(f'{self.absolute_path}\source_dir.txt', 'w') as f:
             f.write(str(new_dir))
-            
-    def get_folders_names(self):
-        with open(f'{self.absolute_path}\folder_names.txt', 'r') as f:
-            folder_names = f.readlines()
-            return folder_names
     
     def get_extensions_names(self):
         with open(f'{self.absolute_path}\extension_names.txt', 'r') as f:
