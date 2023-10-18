@@ -1,6 +1,7 @@
 import time
 
 from time import sleep
+from datetime import datetime
 
 from helpers import DirectoryUtils
 from file_mover_handler import FileMoverHandler
@@ -29,7 +30,8 @@ if __name__ == "__main__":
     my_event_handler = PatternMatchingEventHandler(patterns, ignore_patterns, ignore_directories, case_sensitive)
 
     def on_created(event):
-        FileMoverHandler(event)
+        if '.tmp' not in event.src_path:
+            FileMoverHandler(event)
         
     my_event_handler.on_created = on_created
     
@@ -45,7 +47,8 @@ if __name__ == "__main__":
     try:
         while True:
             time.sleep(300)
-            print('Running again')
+            now = datetime.now()
+            print("Listening...'% s'" % now)
     except KeyboardInterrupt:
         my_observer.stop()
         my_observer.join()

@@ -17,3 +17,5 @@ zip
 xlsx
 dev
 mp4
+tar
+sql
